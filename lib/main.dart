@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// This line imports the extension
 
 void main() {
   runApp(new MyApp());

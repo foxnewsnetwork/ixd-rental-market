@@ -1,6 +1,6 @@
 # ixd_rental_market
 
-A new Flutter project.
+A new [Flutter](https://flutter.io/) project.
 
 ## Testing
 Run tests with:
