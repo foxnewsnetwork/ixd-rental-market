@@ -69,6 +69,18 @@ xcrun simctl launch <YOUR-DEVICE-ID> <BUNDLE-ID-OF-APP-BUNDLE>
 open -a Simulator.app
 ```
 
+### Integration Testing
+
+1. Turn on an emulated phone
+
+2. Run the `flutter drive` command
+
+```zsh
+flutter drive --target='test_driver/setup_sanity.dart`
+```
+
+Be sure to have the setup file and the test file have the same name plus test
+
 ### Getting Started
 
 For help getting started with Flutter, view our online
