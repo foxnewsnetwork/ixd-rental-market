@@ -25,6 +25,12 @@ void main() {
         SerializableFinder sanityText = find.text(txtVal);
         final textContent = await driver.getText(sanityText, timeout: new Duration(milliseconds: 666));
         expect(textContent, txtVal);
+
+        SerializableFinder debugRoomButton = find.text('Debug Room');
+        await driver.tap(debugRoomButton, timeout: new Duration(milliseconds: 666));
+        SerializableFinder debugTextFinder = find.text('Welcome to the debug page!');
+        final debugTextContent = await driver.getText(debugTextFinder, timeout: new Duration(milliseconds: 666));
+        expect(debugTextContent, 'Welcome to the debug page!');
       });
 
       TimelineSummary summary = new TimelineSummary.summarize(timeline);

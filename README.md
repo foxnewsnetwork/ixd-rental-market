@@ -76,7 +76,7 @@ open -a Simulator.app
 2. Run the `flutter drive` command
 
 ```zsh
-flutter drive --target='test_driver/setup_sanity.dart`
+flutter drive --target='test_driver/setup_sanity.dart'
 ```
 
 Be sure to have the setup file and the test file have the same name plus test
