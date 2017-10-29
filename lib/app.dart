@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './routes/home.dart';
 import './routes/debug.dart';
+import './routes/listing/detail.dart';
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -23,6 +24,12 @@ class MyApp extends StatelessWidget {
 
       routes: <String, WidgetBuilder> {
         '/debug': (BuildContext context) => new DebugRoute(title: 'Debug Route'),
+        '/listing/detail': (BuildContext context) => 
+          new ListingDetailRoute(
+            title: '4200 Horsepower Bobcat',
+            dailyPriceRate: 420.0,
+            distanceAway: 0.5,
+          )
       },
     );
   }

@@ -18,6 +18,14 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => new _MyHomePageState();
 }
 
+void _gotoDebug(BuildContext context) {
+  Navigator.of(context).pushNamed('/debug');
+}
+
+void _gotoListingDetail(BuildContext context) {
+  Navigator.of(context).pushNamed('/listing/detail');
+}
+
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
@@ -30,10 +38,6 @@ class _MyHomePageState extends State<MyHomePage> {
       // called again, and so nothing would appear to happen.
       _counter++;
     });
-  }
-
-  void _gotoDebug(BuildContext context) {
-    Navigator.of(context).pushNamed('/debug');
   }
 
   @override
@@ -73,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             new Text(
-              '${_counter}',
+              '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
             new RaisedButton(
@@ -81,6 +85,10 @@ class _MyHomePageState extends State<MyHomePage> {
               child: new Text(
                 'Debug Room'
               ),
+            ),
+            new RaisedButton(
+              onPressed: () { _gotoListingDetail(context); },
+              child: new Text('Listing Detail')
             )
           ],
         ),

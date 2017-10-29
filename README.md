@@ -85,3 +85,6 @@ Be sure to have the setup file and the test file have the same name plus test
 
 For help getting started with Flutter, view our online
 [documentation](http://flutter.io/).
+
+## Dev Journal
+During my development process, I will also be learning dart and flutter. Consult the `journal/` directory for my running account of me doing everything

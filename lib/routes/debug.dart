@@ -28,7 +28,7 @@ class _DebugRouteState extends State<DebugRoute> {
 
           children: <Widget>[
             new Text(
-              'Welcome to the debug page!'
+              'Welcome to the debug page!',
             ),
             new Image.asset('images/dogelog.jpg')
           ],
