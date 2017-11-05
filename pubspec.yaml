@@ -3,6 +3,7 @@ description: A new Flutter project.
 
 dependencies:
   http: '>=0.11.3+12'
+  font_awesome_flutter: '4.7.2'
   flutter:
     sdk: flutter
 
@@ -58,3 +59,7 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+  fonts:
+    - family: FontAwesome # Do not change!
+      fonts:
+        - asset: packages/font_awesome_flutter/fonts/fontawesome.woff

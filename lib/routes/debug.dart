@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DebugRoute extends StatefulWidget {
   DebugRoute({ Key key, this.title }) : super(key: key);
@@ -29,6 +30,11 @@ class _DebugRouteState extends State<DebugRoute> {
           children: <Widget>[
             new Text(
               'Welcome to the debug page!',
+            ),
+            new IconButton(
+              icon: new Icon(FontAwesomeIcons.android),
+              tooltip: 'Font awesome Icon Yay',
+              onPressed: () { print('Pressed icon'); },
             ),
             new Image.asset('images/dogelog.jpg')
           ],
