@@ -10,6 +10,10 @@ class DebugRoute extends StatefulWidget {
   _DebugRouteState createState() => new _DebugRouteState();
 }
 
+String toString(IconData icon) {
+  return new String.fromCharCode(icon.hashCode);
+}
+
 class _DebugRouteState extends State<DebugRoute> {
 
   @override
@@ -29,7 +33,18 @@ class _DebugRouteState extends State<DebugRoute> {
 
           children: <Widget>[
             new Text(
-              'Welcome to the debug page!',
+              'Welcome to the debug page!'
+            ),
+            new Text(
+              toString(Icons.accessible) + toString(Icons.access_time),
+              textAlign: TextAlign.center,
+              style: new TextStyle(
+                inherit: false,
+                fontFamily: "MaterialIcons",
+                color: Colors.black,
+                fontStyle: FontStyle.normal,
+                fontSize: 24.0,
+              ),
             ),
             new IconButton(
               icon: new Icon(FontAwesomeIcons.android),
