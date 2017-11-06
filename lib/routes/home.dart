@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../routes.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -23,7 +24,7 @@ void _gotoDebug(BuildContext context) {
 }
 
 void _gotoListingDetail(BuildContext context) {
-  Navigator.of(context).pushNamed('/listing/detail');
+  Navigator.of(context).pushNamed('/listing/666/detail');
 }
 
 class _MyHomePageState extends State<MyHomePage> {

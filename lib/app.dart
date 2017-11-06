@@ -1,9 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:fluro/fluro.dart';
 import './routes/home.dart';
+import './routes.dart';
 import './routes/debug.dart';
-import './routes/listing/detail.dart';
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State createState() {
+    return new _MyAppState();
+  }
+}
+
+class _MyAppState extends State<MyApp> {
+  final Router router = new Router();
+
+  _MyAppState() {
+    Routes.setup(this.router);
+    debugPrint('0000000');
+    debugPrint('Setting up state');
+  }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -22,16 +38,7 @@ class MyApp extends StatelessWidget {
       ),
       home: new MyHomePage(title: 'Flutter Demo Home Page'),
 
-      routes: <String, WidgetBuilder> {
-        '/debug': (BuildContext context) => new DebugRoute(title: 'Debug Route'),
-        '/listing/detail': (BuildContext context) => 
-          new ListingDetailRoute(
-            title: '4200 Horsepower Bobcat',
-            dailyPriceRate: 420.0,
-            distanceAway: 0.5,
-          )
-      },
+      onGenerateRoute: this.router.generator,
     );
   }
 }
-
