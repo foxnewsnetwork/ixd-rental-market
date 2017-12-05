@@ -14,6 +14,13 @@ String toString(IconData icon) {
   return new String.fromCharCode(icon.hashCode);
 }
 
+/**
+ * <Widget>
+ *   <Scaffold>
+ *     <AppBar></AppBar>
+ *   </Scaffold>
+ * </Widget>
+ */
 class _DebugRouteState extends State<DebugRoute> {
 
   @override

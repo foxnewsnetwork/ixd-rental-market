@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 String _formatPrice(double priceRate) {
   return '\$$priceRate / day';
@@ -6,6 +7,10 @@ String _formatPrice(double priceRate) {
 
 String _formatDistance(double distanceAway) {
   return '$distanceAway mi';
+}
+
+String toString(IconData icon) {
+  return new String.fromCharCode(icon.hashCode);
 }
 
 const BoxDecoration _button90s = const BoxDecoration(
@@ -30,6 +35,15 @@ Widget header(widget) {
 }
 
 Widget _headerCore(widget) {
+  Text greenIconText = new Text(
+    toString(FontAwesomeIcons.circleO),
+    style: new TextStyle(
+      color: Colors.green,
+      fontStyle: FontStyle.normal,
+      fontSize: 18.0, 
+      fontFamily: "FontAwesome"
+    )
+  );
   return new Column(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: <Widget>[
@@ -58,7 +72,12 @@ Widget _headerCore(widget) {
           ),
           new Column(
             children: <Widget>[
-              new Text('Available Now')
+              new Row(
+                children: <Widget>[
+                  greenIconText,
+                  new Text('Available Now')
+                ],
+              )
             ],
           )
         ]
