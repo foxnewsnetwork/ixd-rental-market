@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ixd_rental_market/widgets/listing/detail/header.dart' as ListingDetailComponent;
+import 'package:ixd_rental_market/widgets/listing/detail/header.dart' as ListingDetailHeader;
+import 'package:ixd_rental_market/widgets/listing/detail/hor-nav.dart' as ListingDetailHorNav;
 
 class ListingDetailRoute extends StatefulWidget {
   ListingDetailRoute({Key key, this.title, this.dailyPriceRate, this.distanceAway}) : super(key: key);
@@ -21,6 +22,10 @@ class ListingDetailRoute extends StatefulWidget {
   _ListingDetailRouteState createState() => new _ListingDetailRouteState();
 }
 
+void doNothing() {
+  return;
+}
+
 class _ListingDetailRouteState extends State<ListingDetailRoute> {
   @override
   Widget build(BuildContext context) {
@@ -30,7 +35,20 @@ class _ListingDetailRouteState extends State<ListingDetailRoute> {
       ),
       body: new ListView(
         children: <Widget>[
-          ListingDetailComponent.header(widget)
+          ListingDetailHeader.header(
+            new ListingDetailHeader.HeaderAPI(
+              title: widget.title,
+              dailyPriceRate: widget.dailyPriceRate,
+              distanceAway: widget.distanceAway
+            )
+          ),
+          ListingDetailHorNav.horNav(
+            new ListingDetailHorNav.HorNavAPI(
+              sharePressed: doNothing,
+              bookmarkPressed: doNothing,
+              rentPressed: doNothing
+            )
+          )
         ],
       )
     );
