@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:ixd_rental_market/utils/icon.dart';
 
 String _formatPrice(double priceRate) {
   return '\$$priceRate / day';
@@ -7,10 +8,6 @@ String _formatPrice(double priceRate) {
 
 String _formatDistance(double distanceAway) {
   return '$distanceAway mi';
-}
-
-String toString(IconData icon) {
-  return new String.fromCharCode(icon.hashCode);
 }
 
 const BoxDecoration _button90s = const BoxDecoration(
@@ -23,18 +20,30 @@ const BoxDecoration _button90s = const BoxDecoration(
   color: const Color(0xECE6E6FF)
 );
 
-Widget header(widget) {
+class HeaderAPI {
+  final String title;
+  final double dailyPriceRate;
+  final double distanceAway;
+
+  const HeaderAPI({
+    this.title,
+    this.dailyPriceRate,
+    this.distanceAway
+  });
+}
+
+Widget header(HeaderAPI api) {
   return new Container(
     constraints: new BoxConstraints.expand(
       height: 100.0
     ),
     decoration: _button90s,
     padding: const EdgeInsets.all(10.0),
-    child: _headerCore(widget)
+    child: _headerCore(api)
   ); 
 }
 
-Widget _headerCore(widget) {
+Widget _headerCore(HeaderAPI api) {
   Text greenIconText = new Text(
     toString(FontAwesomeIcons.circleO),
     style: new TextStyle(
@@ -50,7 +59,7 @@ Widget _headerCore(widget) {
       new Row(
         children: <Widget>[
           new Text(
-            widget.title,
+            api.title,
             style: new TextStyle(
               fontSize: 20.0,
               fontWeight: FontWeight.bold
@@ -66,8 +75,8 @@ Widget _headerCore(widget) {
           new Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[  
-              new Text(_formatPrice(widget.dailyPriceRate)),
-              new Text(_formatDistance(widget.distanceAway))
+              new Text(_formatPrice(api.dailyPriceRate)),
+              new Text(_formatDistance(api.distanceAway))
             ],
           ),
           new Column(
