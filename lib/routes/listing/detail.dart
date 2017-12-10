@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ixd_rental_market/widgets/listing/detail/header.dart' as ListingDetailHeader;
-import 'package:ixd_rental_market/widgets/listing/detail/hor-nav.dart' as ListingDetailHorNav;
+import 'package:ixd_rental_market/widgets/listing/detail/horizontal-nav.dart';
 
 class ListingDetailRoute extends StatefulWidget {
   ListingDetailRoute({Key key, this.title, this.dailyPriceRate, this.distanceAway}) : super(key: key);
@@ -42,8 +42,9 @@ class _ListingDetailRouteState extends State<ListingDetailRoute> {
               distanceAway: widget.distanceAway
             )
           ),
-          ListingDetailHorNav.horNav(
-            new ListingDetailHorNav.HorNavAPI(
+          new Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: new HorizontalNav(
               sharePressed: doNothing,
               bookmarkPressed: doNothing,
               rentPressed: doNothing
