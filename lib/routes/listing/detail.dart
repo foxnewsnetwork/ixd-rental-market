@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ixd_rental_market/widgets/listing/detail/header.dart' as ListingDetailHeader;
 import 'package:ixd_rental_market/widgets/listing/detail/horizontal-nav.dart';
+import 'package:ixd_rental_market/widgets/listing/detail/gallery-preview.dart';
 
 class ListingDetailRoute extends StatefulWidget {
   ListingDetailRoute({Key key, this.title, this.dailyPriceRate, this.distanceAway}) : super(key: key);
@@ -49,6 +50,15 @@ class _ListingDetailRouteState extends State<ListingDetailRoute> {
               bookmarkPressed: doNothing,
               rentPressed: doNothing
             )
+          ),
+          new GalleryPreview(
+            seeAllPressed: doNothing,
+            imageURIs: <String>[
+              'images/dogelog.jpg',
+              'images/dogelog.jpg',
+              'images/dogelog.jpg',
+              'images/dogelog.jpg'
+            ],
           )
         ],
       )

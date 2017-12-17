@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import './routes/debug.dart';
+import './routes/debug/list-view.dart';
 import './routes/listing/detail.dart';
 
 class Routes {
@@ -14,6 +15,15 @@ class Routes {
         handlerFunc: (BuildContext context, Map<String, dynamic> params) {
           
           return new DebugRoute(title: 'debug room');
+        }
+      )
+    );
+    router.define(
+      '/debug/list-view',
+      handler: new Handler(
+        type: HandlerType.route,
+        handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+          return new DebugListView(title: 'debug list view');
         }
       )
     );

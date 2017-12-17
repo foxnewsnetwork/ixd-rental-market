@@ -27,6 +27,10 @@ void _gotoListingDetail(BuildContext context) {
   Navigator.of(context).pushNamed('/listing/666/detail');
 }
 
+void _gotoDebugListView(BuildContext context) {
+  Navigator.of(context).pushNamed('/debug/list-view');
+}
+
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
@@ -90,6 +94,10 @@ class _MyHomePageState extends State<MyHomePage> {
             new RaisedButton(
               onPressed: () { _gotoListingDetail(context); },
               child: new Text('Listing Detail')
+            ),
+            new RaisedButton(
+              onPressed: () { _gotoDebugListView(context); },
+              child: new Text('Debug List View'),
             )
           ],
         ),
