@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
+import 'package:map_view/map_view.dart';
 import './routes/home.dart';
 import './routes.dart';
-import './routes/debug.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -15,6 +15,7 @@ class _MyAppState extends State<MyApp> {
   final Router router = new Router();
 
   _MyAppState() {
+    MapView.setApiKey('AIzaSyCmuQFT7s1KguoHkddQtnnAO8lkPCAxgH4');
     Routes.setup(this.router);
     debugPrint('0000000');
     debugPrint('Setting up state');

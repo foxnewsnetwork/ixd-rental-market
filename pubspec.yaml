@@ -5,6 +5,7 @@ dependencies:
   http: '>=0.11.3+12'
   font_awesome_flutter: '4.7.2'
   fluro: "^1.2.1"
+  map_view: "^0.0.5"
   flutter:
     sdk: flutter
 
