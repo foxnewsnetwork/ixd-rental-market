@@ -33,6 +33,13 @@ class _ListingDetailRouteState extends State<ListingDetailRoute> {
     return new Scaffold(
       appBar: new AppBar(
         title: new Text(widget.title),
+        actions: <Widget>[
+          new IconButton(
+            icon: new Icon(Icons.menu),
+            tooltip: 'Side menu',
+            onPressed: () {},
+          )
+        ],
       ),
       body: new ListView(
         children: <Widget>[
