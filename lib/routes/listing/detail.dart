@@ -3,6 +3,8 @@ import 'package:ixd_rental_market/widgets/listing/detail/header.dart' as Listing
 import 'package:ixd_rental_market/widgets/listing/detail/horizontal-nav.dart';
 import 'package:ixd_rental_market/widgets/listing/detail/gallery-preview.dart';
 import 'package:ixd_rental_market/widgets/listing/detail/address-map-button.dart';
+import 'package:ixd_rental_market/widgets/listing/detail/tags-gallery.dart';
+import 'package:ixd_rental_market/data/tag.dart';
 
 class ListingDetailRoute extends StatefulWidget {
   ListingDetailRoute({Key key, this.title, this.dailyPriceRate, this.distanceAway}) : super(key: key);
@@ -71,6 +73,18 @@ class _ListingDetailRouteState extends State<ListingDetailRoute> {
               'images/dogelog.jpg',
               'images/dogelog.jpg'
             ],
+          ),
+          new TagsGallery(
+            onPressed: doNothing,
+            tags: <Tag>[
+              new Tag(displayName: 'doge'),
+              new Tag(displayName: 'corgi'),
+              new Tag(displayName: 'husky'),
+              new Tag(displayName: 'malamute'),
+              new Tag(displayName: 'burmease'),
+              new Tag(displayName: 'wolf'),
+              new Tag(displayName: 'purse dog')
+            ]
           )
         ],
       )
