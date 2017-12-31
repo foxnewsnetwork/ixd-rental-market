@@ -16,12 +16,18 @@ typedef void LinkCallback(String routeName);
 class HamburgerMenu extends StatelessWidget {
   final User user;
   final LinkCallback onPressed;
+  final int notifications;
 
   HamburgerMenu({ 
     Key key,
     this.user,
-    this.onPressed
+    this.onPressed,
+    this.notifications: 0
   }): super(key: key);
+
+
+  HamburgerMenuNotification get hamburgerMenuNotification => 
+    new HamburgerMenuNotification.danger(message: notifications.toString());
 
   @override
   Widget build(BuildContext context) {
@@ -102,16 +108,7 @@ class HamburgerMenu extends StatelessWidget {
   Widget _buildWhiteSection() {
     return new HamburgerMenuSection(
       children: <Widget>[
-        new HamburgerMenuLink(
-          icon: Icons.email,
-          linkName: 'Notifications',
-          notification: new HamburgerMenuNotification.danger(
-            message: '4'
-          ),
-          onPressed: () {
-            return onPressed('whatever');
-          },
-        ),
+        _buildNotificationLink(),
         new HamburgerMenuLink(
           icon: FontAwesomeIcons.edit,
           linkName: 'Compose new listing',
@@ -122,5 +119,25 @@ class HamburgerMenu extends StatelessWidget {
       ],
     );
   }
-}
 
+  Widget _buildNotificationLink() {
+    if (notifications > 0) {
+      return new HamburgerMenuLink(
+        icon: Icons.email,
+        linkName: 'Notifications',
+        notification: hamburgerMenuNotification,
+        onPressed: () {
+          return onPressed('Notifications');
+        },
+      );
+    } else {
+      return new HamburgerMenuLink(
+        icon: Icons.email,
+        linkName: 'Notifications',
+        onPressed: () {
+          return onPressed('Notifications');
+        },
+      );
+    }
+  }
+}

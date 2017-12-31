@@ -97,3 +97,34 @@ class User {
 ## Notifications
 
 One thing I'll still need to do is create a `Notification` data object which can encapsulate what menu bars need what sort of notification in the hamburger menu. Right now, all this is hard-coded and thus does not provide a sensible API for consumers of the hamburger menu to properly customize.
+
+ # Maybe v. Control Flow
+
+ Currently, if no `notification`s are present in the hamburger menu, we don't show the red button at all. The logic for doing this is done with a `if` statement like so:
+
+ ```dart
+ Widget _buildNotificationLink() {
+  if (notifications > 0) {
+    return new HamburgerMenuLink(
+      icon: Icons.email,
+      linkName: 'Notifications',
+      notification: hamburgerMenuNotification,
+      onPressed: () {
+        return onPressed('Notifications');
+      },
+    );
+  } else {
+    return new HamburgerMenuLink(
+      icon: Icons.email,
+      linkName: 'Notifications',
+      onPressed: () {
+        return onPressed('Notifications');
+      },
+    );
+  }
+}
+```
+
+This is the imperative way of handling conditionals and is implicitly not type-safe as the `notification` member passed to `HamburgerMenuLink` can be `null`, which introduces run-time bugs instead of compile-time ones.
+
+What I instead should do is use a `Maybe` framework. Checkout the documentation in the `maybe.dart` file

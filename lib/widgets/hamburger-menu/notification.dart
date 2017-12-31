@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ixd_rental_market/data/notification.dart';
 
-enum NotificationSeverity {
-  danger,
-  warning,
-  success,
-  info,
-  invisible
-}
 class HamburgerMenuNotification extends StatelessWidget {
   final NotificationSeverity severity;
   final String message;
