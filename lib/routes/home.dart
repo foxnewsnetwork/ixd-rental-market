@@ -31,6 +31,10 @@ void _gotoDebugListView(BuildContext context) {
   Navigator.of(context).pushNamed('/debug/list-view');
 }
 
+void _gotoDebugHamburger(BuildContext context) {
+  Navigator.of(context).pushNamed('/debug/hamburger');
+}
+
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
@@ -98,6 +102,10 @@ class _MyHomePageState extends State<MyHomePage> {
             new RaisedButton(
               onPressed: () { _gotoDebugListView(context); },
               child: new Text('Debug List View'),
+            ),
+            new RaisedButton(
+              onPressed: () { _gotoDebugHamburger(context); },
+              child: new Text('Hamburger Debug')
             )
           ],
         ),
