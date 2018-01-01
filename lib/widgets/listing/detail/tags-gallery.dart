@@ -59,6 +59,7 @@ class _TagButton extends StatelessWidget {
   Widget _buildButton() {
     return new FlatButton(
       onPressed: onPressed,
+      color: Colors.white,
       child: new Text(tag.displayName),
     );
   }
