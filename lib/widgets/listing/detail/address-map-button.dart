@@ -51,6 +51,7 @@ class _AddressButton extends StatelessWidget {
   Widget _buildButton() {
     return new RaisedButton(
       onPressed: onPressed,
+      color: Colors.white,
       child: new Text(address)
     );
   }
@@ -66,6 +67,19 @@ class _MapContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return new Container(
+      decoration: new BoxDecoration(
+        border: new Border(
+          top: const BorderSide(
+            color: Colors.black
+          )
+        ),
+      ),
+      child: _buildImage(),
+    );
+  }
+
+  Widget _buildImage() {
     return new Image.network(
       staticMapURI(
         address: address,
