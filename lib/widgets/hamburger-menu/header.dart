@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ixd_rental_market/widgets/image/round.dart';
 
 class HamburgerMenuHeader extends StatelessWidget {
   final ImageProvider<dynamic> imageProvider;
@@ -53,18 +54,9 @@ class HamburgerMenuHeader extends StatelessWidget {
   }
 
   Widget _buildAvatar() {
-    return new Container(
-      width: 24.0,
-      height: 24.0,
-      margin: new EdgeInsets.only(right: 15.0),
-      decoration: new BoxDecoration(
-        borderRadius: new BorderRadius.circular(12.0),
-        image: new DecorationImage(
-          // @TODO: repalce with actual image
-          image: imageProvider,
-          fit: BoxFit.fill
-        )
-      ),
+    return new RoundImage(
+      imageProvider: imageProvider,
+      margin: const EdgeInsets.only(right: 15.0),
     );
   }
 
