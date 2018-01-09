@@ -5,6 +5,7 @@ import 'package:ixd_rental_market/widgets/listing/detail/gallery-preview.dart';
 import 'package:ixd_rental_market/widgets/listing/detail/address-map-button.dart';
 import 'package:ixd_rental_market/widgets/listing/detail/tags-gallery.dart';
 import 'package:ixd_rental_market/widgets/listing/detail/user-blurb.dart';
+import 'package:ixd_rental_market/widgets/listing/detail/product-description.dart';
 import 'package:ixd_rental_market/data/tag.dart';
 import 'package:ixd_rental_market/data/user.dart';
 
@@ -94,6 +95,9 @@ class _ListingDetailRouteState extends State<ListingDetailRoute> {
               fullName: 'Doge McMaster'
             ),
           ),
+          new ProductDescription(
+            description: 'Lorem ipsum dolor sit amet, solet melius et ius. Cu vim nisl omnesque. Vix ut latine molestie. In nec tollit liberavisse, movet insolens pro at. Facer salutandi percipitur usu ea.',
+          )
         ],
       )
     );
