@@ -46,7 +46,7 @@ class _ListingDetailRouteState extends State<ListingDetailRoute> {
         title: new Text(widget.title),
         actions: <Widget>[
           new IconButton(
-            icon: new Icon(Icons.menu),
+            icon: new Icon(Icons.more_vert),
             tooltip: 'Side menu',
             onPressed: () {},
           )
