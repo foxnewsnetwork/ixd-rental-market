@@ -20,6 +20,7 @@ class HamburgerMenuLink extends StatelessWidget {
     return new ListTile(
       leading: _buildIcon(),
       title: _buildText(),
+      trailing: notification,
       onTap: onPressed,
     );
   }

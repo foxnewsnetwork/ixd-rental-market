@@ -2,6 +2,8 @@
 
 While retackling my drawer integration, I came across flutter's material app's [native drawer implementation])https://docs.flutter.io/flutter/material/Drawer-class.html). I had previously already written my own shitty implementation of a drawer, but now that I've discovered the proper way, it's time to go back through it and learn how to do it right.
 
+In anycase, here is [flutter's drawer demo](https://github.com/flutter/flutter/blob/master/examples/flutter_gallery/lib/demo/material/drawer_demo.dart), I could probably just copy over most of what's in there and have what I need
+
 ## DrawerHeader
 
 `DrawerHeader`s are used to display the user related info, this functionality is apparently common enough such that flutter ships with a direct [UserAccountsDrawerHeader](https://docs.flutter.io/flutter/material/UserAccountsDrawerHeader-class.html)
@@ -51,8 +53,24 @@ I will investigate what they all do later on
 
 ## Divider and SubHeaders
 
-The material drawer specs affords for [dividers](https://docs.flutter.io/flutter/material/Divider-class.html) and subsections, I need to figure out how to do them correctly in flutter
+The material drawer specs affords for [dividers](https://docs.flutter.io/flutter/material/Divider-class.html) and subsections, I need to figure out how to do them correctly in flutter.
+
+Apparently, this is also trivially easy to do with just `Divider` and `Text` elements in between the desired `ListTile`s. I will not provide an example here since I don't plan on shipping it
 
 ## Notification
 
-How do I show notifications to the user? Having switched to using the `ListTile` shipped from flutter, this is now an open question
+How do I show notifications to the user? Having switched to using the `ListTile` shipped from flutter, this is now an open question. Apparently, this is easier than I thought; there is a convenient `trailing` widget:
+
+```dart
+Widget build(BuildContext context) {
+  return new ListTile(
+    leading: _buildIcon(),
+    title: _buildText(),
+    trailing: notification,
+    onTap: onPressed,
+  );
+}
+```
+By simply putting my notification widget into the `trailing` section of the `ListTile`, I'm able to achieve what I want:
+
+![](./ch13/drawer-trailing.png)

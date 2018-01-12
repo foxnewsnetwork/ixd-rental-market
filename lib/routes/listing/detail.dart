@@ -54,6 +54,7 @@ class _ListingDetailRouteState extends State<ListingDetailRoute> {
       ),
       drawer: new HamburgerMenu(
         user: _userFixture,
+        notifications: 2,
         onPressed: (String routeName) { }
       ),
       body: new ListView(
