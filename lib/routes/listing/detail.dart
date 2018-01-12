@@ -6,6 +6,7 @@ import 'package:ixd_rental_market/widgets/listing/detail/address-map-button.dart
 import 'package:ixd_rental_market/widgets/listing/detail/tags-gallery.dart';
 import 'package:ixd_rental_market/widgets/listing/detail/user-blurb.dart';
 import 'package:ixd_rental_market/widgets/listing/detail/product-description.dart';
+import 'package:ixd_rental_market/widgets/hamburger-menu.dart';
 import 'package:ixd_rental_market/data/tag.dart';
 import 'package:ixd_rental_market/data/user.dart';
 
@@ -33,6 +34,10 @@ void doNothing() {
   return;
 }
 
+const _userFixture = const User(
+  fullName: 'Doge McMaster'
+);
+
 class _ListingDetailRouteState extends State<ListingDetailRoute> {
   @override
   Widget build(BuildContext context) {
@@ -41,11 +46,16 @@ class _ListingDetailRouteState extends State<ListingDetailRoute> {
         title: new Text(widget.title),
         actions: <Widget>[
           new IconButton(
-            icon: new Icon(Icons.menu),
+            icon: new Icon(Icons.more_vert),
             tooltip: 'Side menu',
             onPressed: () {},
           )
         ],
+      ),
+      drawer: new HamburgerMenu(
+        user: _userFixture,
+        notifications: 2,
+        onPressed: (String routeName) { }
       ),
       body: new ListView(
         children: <Widget>[
@@ -91,9 +101,7 @@ class _ListingDetailRouteState extends State<ListingDetailRoute> {
           ),
           new UserBlurb(
             onPressed: doNothing,
-            user: const User(
-              fullName: 'Doge McMaster'
-            ),
+            user: _userFixture,
           ),
           new ProductDescription(
             description: 'Lorem ipsum dolor sit amet, solet melius et ius. Cu vim nisl omnesque. Vix ut latine molestie. In nec tollit liberavisse, movet insolens pro at. Facer salutandi percipitur usu ea.',

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ixd_rental_market/data/user.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import './hamburger-menu/header.dart';
 import './hamburger-menu/section.dart';
 import './hamburger-menu/link.dart';
 import './hamburger-menu/notification.dart';
@@ -18,7 +17,7 @@ class HamburgerMenu extends StatelessWidget {
   final LinkCallback onPressed;
   final int notifications;
 
-  HamburgerMenu({ 
+  const HamburgerMenu({ 
     Key key,
     this.user,
     this.onPressed,
@@ -31,31 +30,25 @@ class HamburgerMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Container(
-      decoration: new BoxDecoration(
-        color: Colors.black12
+    return new Drawer(
+      child: new ListView(
+        children: <Widget>[
+          _buildHeader(),
+          _buildBlackSection()
+        ],
       ),
-      child: _buildCore()
-    );
-  }
-
-  Widget _buildCore() {
-    return new Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
-        _buildHeader(),
-        _buildWhiteSection(),
-        _buildBlackSection()
-      ],
     );
   }
 
   Widget _buildHeader() {
-    return new HamburgerMenuHeader(
-      imageProvider: user.imageProvider,
-      header: user.fullName,
-      subheader: 'My Menu',
-      onPressed: () {
+    return new UserAccountsDrawerHeader(
+      accountName: new Text(user.fullName),
+      accountEmail: new Text('my-email@somewhere.co'),
+      currentAccountPicture: new CircleAvatar(
+        backgroundImage: user.imageProvider,
+        child: new Text(user.initials)
+      ),
+      onDetailsPressed: () {
         return onPressed('user.whatever');
       },
     );
@@ -66,6 +59,14 @@ class HamburgerMenu extends StatelessWidget {
       bgColor: Colors.transparent,
       borderColor: Colors.transparent,
       children: <Widget>[
+        _buildNotificationLink(),
+        new HamburgerMenuLink(
+          icon: FontAwesomeIcons.edit,
+          linkName: 'Compose new listing',
+          onPressed: () {
+            return onPressed('whatever');
+          },
+        ),
         new HamburgerMenuLink(
           icon: Icons.star_border,
           linkName: 'My reviews',
@@ -99,21 +100,6 @@ class HamburgerMenu extends StatelessWidget {
           linkName: 'Terms of service',
           onPressed: () { 
             return onPressed('Terms of service');
-          },
-        ),
-      ],
-    );
-  }
-
-  Widget _buildWhiteSection() {
-    return new HamburgerMenuSection(
-      children: <Widget>[
-        _buildNotificationLink(),
-        new HamburgerMenuLink(
-          icon: FontAwesomeIcons.edit,
-          linkName: 'Compose new listing',
-          onPressed: () {
-            return onPressed('whatever');
           },
         ),
       ],
