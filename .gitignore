@@ -5,8 +5,12 @@
 .pub/
 build/
 ios/.generated/
+ios/Flutter/
 packages
 pubspec.lock
 .flutter-plugins
 *.log
 fonts
+
+# api keys and app deploy secrets
+lib/config/secrets.dart
