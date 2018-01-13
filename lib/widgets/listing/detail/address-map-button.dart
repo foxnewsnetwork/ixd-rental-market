@@ -65,12 +65,19 @@ class _MapContainer extends StatelessWidget {
     this.address
   }) : super(key: key);
 
+  String get imageURI => staticMapURI(
+    address: address,
+    width: 333,
+    height: 210,
+    zoom: 16
+  );
+
   @override
   Widget build(BuildContext context) {
     return new Container(
       decoration: new BoxDecoration(
         border: new Border(
-          top: const BorderSide(
+          top: new BorderSide(
             color: Colors.black
           )
         ),
@@ -81,12 +88,7 @@ class _MapContainer extends StatelessWidget {
 
   Widget _buildImage() {
     return new Image.network(
-      staticMapURI(
-        address: address,
-        width: 333,
-        height: 210,
-        zoom: 16
-      ), 
+      imageURI,
       height: 125.0, 
       fit: BoxFit.cover,
     );

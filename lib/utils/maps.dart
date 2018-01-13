@@ -1,8 +1,9 @@
-import 'dart:io' show Platform;
+import 'package:ixd_rental_market/config/secrets.dart';
 
-/// Check your ~/.zshrc or whatever it is for the map key!
-/// For me, I put it in my ~/.zshrc
-final String _googleStaticMapAPIKey = Platform.environment['GOOGLE_STATIC_MAP_API_KEY'];
+/// this was formerly stored in my `~/.zshrc`, however, do to 
+/// access issues on iOs and android, I had no choice to but
+/// put it inside a `config/secrets.dart` file
+const String _googleStaticMapAPIKey = Secrets.googleStaticMapsAPIKey;
 
 /// MapTypes are documented here:
 /// https://developers.google.com/maps/documentation/static-maps/intro#MapTypes
@@ -47,8 +48,11 @@ String staticMapURI({
   int height: 480,
   int zoom: 13
 }) {
+  assert(_googleStaticMapAPIKey is String, 
+    'Expected the static map api to be a string, but instead got "$_googleStaticMapAPIKey"');
   final Uri uri = new Uri.https('maps.googleapis.com', 'maps/api/staticmap', {
     'center': address,
+    'markers': address,
     'size': '${width}x$height',
     'maptype': _mapTypeStr(maptype),
     'key': _googleStaticMapAPIKey,
