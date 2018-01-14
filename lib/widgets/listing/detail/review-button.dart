@@ -49,6 +49,7 @@ class ReviewButton extends StatelessWidget {
               child: new Container(
                 margin: const EdgeInsets.symmetric(vertical: 5.0),
                 child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     new DisputesPieChart(reviewAggregate: reviewAggregate),
                     new RatingsBarGraph(reviewAggregate: reviewAggregate)

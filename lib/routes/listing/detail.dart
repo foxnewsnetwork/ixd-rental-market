@@ -109,9 +109,18 @@ class _ListingDetailRouteState extends State<ListingDetailRoute> {
             description: 'Lorem ipsum dolor sit amet, solet melius et ius. Cu vim nisl omnesque. Vix ut latine molestie. In nec tollit liberavisse, movet insolens pro at. Facer salutandi percipitur usu ea.',
           ),
           new ReviewButton(
+            onTap: () {},
             reviewAggregate: new ReviewAggregate(
               disputes: 33,
-              transactions: 99
+              transactions: 99,
+              bars: <Bar>[
+                const Bar.five(amount: 666),
+                const Bar.four(amount: 123),
+                const Bar.three(amount: 44),
+                const Bar.two(amount: 12),
+                const Bar.one(amount: 24),
+                const Bar.zero(amount: 26)
+              ]
             ),
           )
         ],

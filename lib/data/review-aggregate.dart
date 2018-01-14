@@ -10,31 +10,33 @@ class Bar {
   });
 
   const Bar.zero({
-    num amount: 0
+    int amount: 0
   }) : this(amount: amount, weight: 0);
 
   const Bar.one({
-    num amount: 0
+    int amount: 0
   }) : this(amount: amount, weight: 1);
 
   const Bar.two({
-    num amount: 0
+    int amount: 0
   }) : this(amount: amount, weight: 2);
 
   const Bar.three({
-    num amount: 0
+    int amount: 0
   }) : this(amount: amount, weight: 3);
 
   const Bar.four({
-    num amount: 0
+    int amount: 0
   }) : this(amount: amount, weight: 4);
 
   const Bar.five({
-    num amount: 0
+    int amount: 0
   }) : this(amount: amount, weight: 5);
 
-  num get value => amount * weight;
+  int get value => amount * weight;
 }
+
+int _sum(int total, int value) => total + value;
 
 class ReviewAggregate {
   final int transactions;
@@ -45,15 +47,16 @@ class ReviewAggregate {
     this.transactions: 0,
     this.disputes: 0,
     this.bars: const [
-      const Bar.zero(),
-      const Bar.one(),
-      const Bar.two(),
-      const Bar.three(),
+      const Bar.five(),
       const Bar.four(),
-      const Bar.five()
+      const Bar.three(),
+      const Bar.two(),
+      const Bar.one(),
+      const Bar.zero()
     ]
   });
 
   num get disputePercent => disputes / transactions;
-  num get stars => bars.map((bar) => bar.value).reduce((total, value) => total + value) / bars.length;
+  num get stars => bars.map((bar) => bar.value).reduce(_sum) / totalAmount;
+  num get totalAmount => bars.map((bar) => bar.amount).reduce(_sum);
 }

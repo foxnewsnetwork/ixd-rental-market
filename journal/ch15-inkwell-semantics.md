@@ -153,4 +153,8 @@ All together, we have:
 ![](./ch15/pie-chart.png)
 
 ## Covariant Keyword
-https://www.dartlang.org/guides/language/sound-problems#the-covariant-keyword
+The [corvariant keyword](https://www.dartlang.org/guides/language/sound-problems#the-covariant-keyword) described here is used for allowing the type system to tighten types on inheritance. Just an FYI here
+
+Anyway, after much struggle, here's the finished `ReviewButton`
+
+![](./ch15/full-review-button.png)
