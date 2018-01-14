@@ -6,9 +6,11 @@ import 'package:ixd_rental_market/widgets/listing/detail/address-map-button.dart
 import 'package:ixd_rental_market/widgets/listing/detail/tags-gallery.dart';
 import 'package:ixd_rental_market/widgets/listing/detail/user-blurb.dart';
 import 'package:ixd_rental_market/widgets/listing/detail/product-description.dart';
+import 'package:ixd_rental_market/widgets/listing/detail/review-button.dart';
 import 'package:ixd_rental_market/widgets/hamburger-menu.dart';
 import 'package:ixd_rental_market/data/tag.dart';
 import 'package:ixd_rental_market/data/user.dart';
+import 'package:ixd_rental_market/data/review-aggregate.dart';
 
 class ListingDetailRoute extends StatefulWidget {
   ListingDetailRoute({Key key, this.title, this.dailyPriceRate, this.distanceAway}) : super(key: key);
@@ -105,6 +107,12 @@ class _ListingDetailRouteState extends State<ListingDetailRoute> {
           ),
           new ProductDescription(
             description: 'Lorem ipsum dolor sit amet, solet melius et ius. Cu vim nisl omnesque. Vix ut latine molestie. In nec tollit liberavisse, movet insolens pro at. Facer salutandi percipitur usu ea.',
+          ),
+          new ReviewButton(
+            reviewAggregate: new ReviewAggregate(
+              disputes: 33,
+              transactions: 99
+            ),
           )
         ],
       )
