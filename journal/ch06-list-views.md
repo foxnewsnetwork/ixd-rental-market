@@ -2,7 +2,7 @@
 
 In this branch, I attempt to build a section button that has a picture that is partially cropped. Something like this:
 
-![preview](./ch06/pic-gallery-preview.png)
+![preview](./assets/ch06/pic-gallery-preview.png)
 
 ## Starting Out
 Having discovered how to start out widget files, we start out our `GalleryPreview` widget in the same `StatefulWidget` way as with our previous one:
@@ -134,7 +134,7 @@ new Scaffold(
 
 This renders correctly:
 
-![](./ch06/vanilla-doges.png);
+![](./assets/ch06/vanilla-doges.png);
 
 ### Builder
 The builder is a way of specifying potentially infinite list view elements:
@@ -171,7 +171,7 @@ Widget _mixedLazyList() {
 
 We get exact as we expect
 
-![](./ch06/mixed-doges.png)
+![](./assets/ch06/mixed-doges.png)
 
 ### Contained Lists
 
@@ -185,7 +185,7 @@ body: new Container(
 ```
 It seems if we have a vertically scrolling `ListView`, it all works as long as we have the vertical dimension properly confined.
 
-![](./contained-vertical-list.png)
+![](./assets/contained-vertical-list.png)
 
 ### Horizontal Lists
 
@@ -212,13 +212,13 @@ Widget _lazyDogeListH() {
 
 This works admirably, and we get a horizontal list:
 
-![](./ch06/h-doges.png)
+![](./assets/ch06/h-doges.png)
 
 ### Actual Usage
 
 Putting it all together, we can achieve the desired affect:
 
-![](./ch06/gallery-preview.png)
+![](./assets/ch06/gallery-preview.png)
 
 by constraining the height of the container that holds the list view in the gallery-preview.dart file:
 

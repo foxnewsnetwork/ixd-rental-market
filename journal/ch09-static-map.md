@@ -2,7 +2,7 @@
 
 Here, I'm trying to implement a button that has a map and address that looks like:
 
-![](./ch09/map-address-spec.png)
+![](./assets/ch09/map-address-spec.png)
 
 ## Static Map Source
 
@@ -44,7 +44,7 @@ new Column(
 
 By default, `Column`s use `CrossAxisAlignment.center`, however in order to achieve the desired cross axis alignment, we must `.stretch`:
 
-![](./ch09/stretch-align.png)
+![](./assets/ch09/stretch-align.png)
 
 ## Bordered Buttons
 
@@ -63,5 +63,5 @@ new Container(
 
 We thus arrive at this:
 
-![](./ch09/address-button.png)
+![](./assets/ch09/address-button.png)
 

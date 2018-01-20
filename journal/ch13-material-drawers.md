@@ -8,7 +8,7 @@ In anycase, here is [flutter's drawer demo](https://github.com/flutter/flutter/b
 
 `DrawerHeader`s are used to display the user related info, this functionality is apparently common enough such that flutter ships with a direct [UserAccountsDrawerHeader](https://docs.flutter.io/flutter/material/UserAccountsDrawerHeader-class.html)
 
-![](./ch13/drawer-header.png)
+![](./assets/ch13/drawer-header.png)
 
 `DrawerHeader`s requires an user name, email, and commonly an avatar picture as per material design; here is my usage:
 
@@ -73,4 +73,4 @@ Widget build(BuildContext context) {
 ```
 By simply putting my notification widget into the `trailing` section of the `ListTile`, I'm able to achieve what I want:
 
-![](./ch13/drawer-trailing.png)
+![](./assets/ch13/drawer-trailing.png)

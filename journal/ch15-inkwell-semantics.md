@@ -2,7 +2,7 @@
 
 In this section, I will try to implement the following ReviewButton widget:
 
-![](./ch15/review-btn.png)
+![](./assets/ch15/review-btn.png)
 
 However, we also take inspiration from the implementation of the `ListTile` component and introduce ourselves to the new `InkWell` and `Semantics` classes from the material widget library
 
@@ -33,7 +33,7 @@ An [InkWell](https://docs.flutter.io/flutter/material/InkWell-class.html) is a "
 
 Recall that the iPhone X has that weird thing at the top where the OS can intrude on the app. The [SafeArea](https://docs.flutter.io/flutter/widgets/SafeArea-class.html) guards against this:
 
-![](./ch15/safe-area.png)
+![](./assets/ch15/safe-area.png)
 
 ## UnconstrainedBox
 
@@ -74,7 +74,7 @@ return new InkWell(
 
 The [custom paint](https://docs.flutter.io/flutter/widgets/CustomPaint-class.html) allows me to more readily paint arbitrary canvas colors to the mobile device. 
 
-![](./ch15/paint-the-sun.png)
+![](./assets/ch15/paint-the-sun.png)
 
 Use the `CustomPaint` component if one desires to draw something more customized onto the screen like so:
 
@@ -150,11 +150,11 @@ Firstly, we note that all angles in `dart` are specified in radians, not degrees
 
 All together, we have:
 
-![](./ch15/pie-chart.png)
+![](./assets/ch15/pie-chart.png)
 
 ## Covariant Keyword
 The [corvariant keyword](https://www.dartlang.org/guides/language/sound-problems#the-covariant-keyword) described here is used for allowing the type system to tighten types on inheritance. Just an FYI here
 
 Anyway, after much struggle, here's the finished `ReviewButton`
 
-![](./ch15/full-review-button.png)
+![](./assets/ch15/full-review-button.png)

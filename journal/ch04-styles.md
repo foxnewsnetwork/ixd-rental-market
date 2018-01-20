@@ -31,7 +31,7 @@ new Row(
 
 achieves the desired outcome here:
 
-![header with green available icon](./ch04/header-with-green-icon.png)
+![header with green available icon](./assets/ch04/header-with-green-icon.png)
 
 ## Note
 - Remember, your family are specified in your `pubspec.yaml` file
