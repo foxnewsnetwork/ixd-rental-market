@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:ixd_rental_market/utils/maps.dart';
+part of widgets;
 
 class AddressMapButton extends StatelessWidget {
   final String address;

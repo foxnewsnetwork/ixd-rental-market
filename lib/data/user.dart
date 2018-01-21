@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of data;
 
 class User {
   final String avatarImageURL;

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
-import './routes/home.dart';
 import './routes.dart';
-import './routes/debug.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -36,7 +34,7 @@ class _MyAppState extends State<MyApp> {
         // didn't reset back to zero; the application is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: new MyHomePage(title: 'Flutter Demo Home Page'),
+      home: new HomeIndexRoute(title: 'Flutter Demo Home Page'),
 
       onGenerateRoute: this.router.generator,
     );

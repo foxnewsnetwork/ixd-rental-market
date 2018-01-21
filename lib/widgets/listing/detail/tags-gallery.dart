@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:ixd_rental_market/data/tag.dart';
+part of widgets;
 
 class TagsGallery extends StatelessWidget {
   final List<Tag> tags;

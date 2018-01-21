@@ -2,7 +2,7 @@
 
 Here, we attempt to build the following `Widget` asset:
 
-![](./ch12/spec.png)
+![](./assets/ch12/spec.png)
 
 There isn't much that's tricky in building this `Widget`, the standard usage of `FlatButton`, `Row`, `Column`, and `Container` achieves this admirably.
 
@@ -101,4 +101,4 @@ In this case, since `name` is `final`, and no reassignments can occur, I should 
 # End Result
 Anyway, this was widget was reasonably easy to mark-up:
 
-![](./ch12/output.png)
+![](./assets/ch12/output.png)

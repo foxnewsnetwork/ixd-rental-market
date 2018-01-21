@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of routes;
 
 Widget _itemBuilder(BuildContext context, int index) { 
   return new Image.asset(
@@ -6,10 +6,10 @@ Widget _itemBuilder(BuildContext context, int index) {
     width: 75.0,
   );
 }
-class DebugListView extends StatelessWidget {
+class DebugListViewRoute extends StatelessWidget {
   final String title;
 
-  DebugListView({
+  DebugListViewRoute({
     Key key,
     this.title
   }) : super(key: key);

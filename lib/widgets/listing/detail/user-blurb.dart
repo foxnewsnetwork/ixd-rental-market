@@ -1,8 +1,4 @@
-import 'package:meta/meta.dart';
-import 'package:flutter/material.dart';
-import 'package:ixd_rental_market/data/user.dart';
-import 'package:ixd_rental_market/utils/styles.dart';
-import 'package:ixd_rental_market/widgets/image/round.dart';
+part of widgets;
 
 class UserBlurb extends StatelessWidget {
   const UserBlurb({
@@ -45,9 +41,12 @@ class UserBlurb extends StatelessWidget {
   }
 
   Widget _buildAvatar() {
-    return new RoundImage(
-      imageProvider: user.imageProvider,
+    return new Container(
       margin: const EdgeInsets.only(right: 12.0),
+      child: new CircleAvatar(
+        backgroundImage: user.imageProvider,
+        radius: 12.0,
+      )
     );
   }
 

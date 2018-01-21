@@ -1,5 +1,4 @@
-import 'dart:math' show min, PI;
-import 'package:flutter/material.dart';
+part of widgets;
 
 class PiePainter extends CustomPainter {
   /// The angle in radians of the arc slice

@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:ixd_rental_market/data/notification.dart';
+part of widgets;
 
 class HamburgerMenuNotification extends StatelessWidget {
   final NotificationSeverity severity;

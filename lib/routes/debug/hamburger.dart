@@ -1,10 +1,8 @@
-import 'package:flutter/material.dart';
-import 'package:ixd_rental_market/widgets/hamburger-menu.dart';
-import 'package:ixd_rental_market/data/user.dart';
+part of routes;
 
-class DebugHamburger extends StatelessWidget {
+class DebugHamburgerRoute extends StatelessWidget {
 
-  DebugHamburger({
+  DebugHamburgerRoute({
     Key key
   }) : super(key: key);
 

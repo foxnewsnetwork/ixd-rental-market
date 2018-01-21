@@ -2,7 +2,7 @@
 
 Here, we try to customize the AppBar header to resemble our specs:
 
-![](./ch08/app-bar-header.png)
+![](./assets/ch08/app-bar-header.png)
 
 Sensible api and guides for the [app bar can be found here](https://docs.flutter.io/flutter/material/AppBar-class.html)
 

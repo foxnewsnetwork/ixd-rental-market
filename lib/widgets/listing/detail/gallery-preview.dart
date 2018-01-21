@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of widgets;
 
 const String _placeholderImageURI = 'assets/dogelog.jpg';
 

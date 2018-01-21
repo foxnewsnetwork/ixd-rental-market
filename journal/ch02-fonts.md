@@ -57,4 +57,4 @@ new Text(
 
 Using these tools we're able to render icons on the debug page:
 
-![icons and fonts on the debug page](./ch02/icons-and-fonts-debug.png)
+![icons and fonts on the debug page](./assets/ch02/icons-and-fonts-debug.png)

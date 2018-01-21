@@ -6,7 +6,7 @@ Even in a read-only app, we have to have some way for the user to interact with 
 
 Looking for a horizontal row of buttons that look something like this:
 
-![button bar rendered](./ch05/button-bar-rendered.png)
+![button bar rendered](./assets/ch05/button-bar-rendered.png)
 
 then the [ButtonBar class](https://docs.flutter.io/flutter/material/ButtonBar-class.html) is for you.
 

@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import './notification.dart';
+part of widgets;
 
 class HamburgerMenuLink extends StatelessWidget {
   final IconData icon;

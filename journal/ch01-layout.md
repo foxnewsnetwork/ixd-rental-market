@@ -36,4 +36,4 @@ new Flex(
 Notably, I will have to specify axises and directions
 
 # Finished Header
-![the finished header with flex layout](./ch01/listing-detail-header.png)
+![the finished header with flex layout](./assets/ch01/listing-detail-header.png)

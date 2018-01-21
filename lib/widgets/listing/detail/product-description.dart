@@ -1,5 +1,4 @@
-import 'package:meta/meta.dart';
-import 'package:flutter/material.dart';
+part of widgets;
 
 class ProductDescription extends StatelessWidget {
   final String description;

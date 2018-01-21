@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-
+part of utils;
 
 /// BorderStyles represent commonly used presets for
 /// borders in buttons and the like throughout the app

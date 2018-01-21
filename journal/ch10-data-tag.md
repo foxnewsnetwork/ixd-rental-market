@@ -2,7 +2,7 @@
 
 Here, I attempt to implement the row of tag elements that we see here:
 
-![](./ch10/tags-spec.png)
+![](./assets/ch10/tags-spec.png)
 
 ## Data Pattern
 
@@ -50,7 +50,7 @@ children: tags.map((Tag tag) =>
 
 The end result is here:
 
-![](./ch10/tags-rendered.png)
+![](./assets/ch10/tags-rendered.png)
 
 Note that I've chosen to not exactly follow the given spec based upon inspiration from YELP's tag system, and the fact the specs weren't that good in the first place.
 

@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:ixd_rental_market/data/review-aggregate.dart';
-import './pie-painter.dart';
-import 'dart:math';
+part of widgets;
 
 class DisputesPieChart extends StatelessWidget {
   final ReviewAggregate reviewAggregate;

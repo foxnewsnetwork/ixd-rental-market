@@ -1,4 +1,4 @@
-import 'package:meta/meta.dart';
+part of data;
 
 class Bar {
   final int weight;

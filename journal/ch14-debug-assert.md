@@ -34,7 +34,7 @@ debugPrint('whatever', { width: 2});
 
 Which will cause the console to print out whatever it is I might be interested in; in my particular case, I was trying to get maps to load correctly:
 
-![](./ch14/debug-print.png)
+![](./assets/ch14/debug-print.png)
 
 ## Dart Core Print
 - dart.core ships with `print` commands
@@ -67,7 +67,7 @@ One important to notice is that, while _googleStaticMapAPIKey is an environment 
 
 In anycase, a failing assertion is caught right away like so:
 
-![](./ch14/failed-assert.png)
+![](./assets/ch14/failed-assert.png)
 
 ## Environment Variables
 
@@ -88,4 +88,4 @@ However, in any case, it seems it's not possible to read my `zsh` environment fr
 
 Apparently, there is an issue where if flutter updates, I need to kill my simulator and relaunch in order to get everything to work again. In anycase, after much struggle and launching with iOS's iPhoneX, I am finally able to get everything working again:
 
-![](./ch14/maps-static-icon.png)
+![](./assets/ch14/maps-static-icon.png)

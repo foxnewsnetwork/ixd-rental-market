@@ -1,7 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:ixd_rental_market/data/review-aggregate.dart';
-import './rating-stars.dart';
-import './rating-bars.dart';
+part of widgets;
 
 class RatingsBarGraph extends StatelessWidget {
   final ReviewAggregate reviewAggregate;

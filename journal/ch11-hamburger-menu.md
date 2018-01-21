@@ -2,7 +2,7 @@
 
 Here, we attempt to build and style a hamburger menu that will slide onto the screen. The menu looks like:
 
-![](./ch11/hamburger-spec.png)
+![](./assets/ch11/hamburger-spec.png)
 
 Although the design and the actual spec layout of the menu will be most likely reasonably easy, the tricky part would be deploying this object as I currently don't know how to deploy side activities and fragments in a sensible way.
 
@@ -25,7 +25,7 @@ Rapidly scaffolding the structure of the hamburger menu, I currently arrive at t
 
 Rapidly implementing without the entire style, I quickly arrive at:
 
-![](./ch11/rapid-scaffold.png)
+![](./assets/ch11/rapid-scaffold.png)
 
 ### Problems
 
@@ -62,7 +62,7 @@ I am able to provide a sensible API to generating different notifications.
 
 As such, the styling is complete as we reach the desired outcome:
 
-![](./ch11/styled.png)
+![](./assets/ch11/styled.png)
 
 However, we are currently still missing the other icons; I will fill those in slightly later.
 

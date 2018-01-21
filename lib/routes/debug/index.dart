@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
-import '../routes.dart';
+part of routes;
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class DebugIndexRoute extends StatefulWidget {
+  DebugIndexRoute({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -16,7 +15,7 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() => new _MyHomePageState();
+  _DebugIndexRouteState createState() => new _DebugIndexRouteState();
 }
 
 void _gotoDebug(BuildContext context) {
@@ -35,7 +34,7 @@ void _gotoDebugHamburger(BuildContext context) {
   Navigator.of(context).pushNamed('/debug/hamburger');
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _DebugIndexRouteState extends State<DebugIndexRoute> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -59,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return new Scaffold(
       appBar: new AppBar(
-        // Here we take the value from the MyHomePage object that was created by
+        // Here we take the value from the DebugIndexRoute object that was created by
         // the App.build method, and use it to set our appbar title.
         title: new Text(widget.title),
       ),
