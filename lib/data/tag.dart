@@ -1,3 +1,5 @@
+part of data;
+
 class Tag {
   final String displayName;
 

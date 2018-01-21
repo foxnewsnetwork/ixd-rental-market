@@ -1,3 +1,5 @@
+part of data;
+
 enum NotificationSeverity {
   danger,
   warning,

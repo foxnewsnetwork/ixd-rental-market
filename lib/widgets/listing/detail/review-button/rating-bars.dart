@@ -1,7 +1,4 @@
-import 'package:meta/meta.dart';
-import 'dart:math';
-import 'package:flutter/material.dart';
-import 'package:ixd_rental_market/data/review-aggregate.dart';
+part of widgets;
 
 int _compareBars(Bar b1, Bar b2) {
   return b1.value.compareTo(b2.value);

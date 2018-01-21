@@ -1,4 +1,4 @@
-import 'package:ixd_rental_market/config/secrets.dart';
+part of utils;
 
 /// this was formerly stored in my `~/.zshrc`, however, do to 
 /// access issues on iOs and android, I had no choice to but

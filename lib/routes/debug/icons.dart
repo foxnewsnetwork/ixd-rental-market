@@ -1,13 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+part of routes;
 
-class DebugRoute extends StatefulWidget {
-  DebugRoute({ Key key, this.title }) : super(key: key);
+class DebugIconsRoute extends StatefulWidget {
+  DebugIconsRoute({ Key key, this.title }) : super(key: key);
 
   final String title;
 
   @override
-  _DebugRouteState createState() => new _DebugRouteState();
+  _DebugIconsRouteState createState() => new _DebugIconsRouteState();
 }
 
 String toString(IconData icon) {
@@ -21,7 +20,7 @@ String toString(IconData icon) {
  *   </Scaffold>
  * </Widget>
  */
-class _DebugRouteState extends State<DebugRoute> {
+class _DebugIconsRouteState extends State<DebugIconsRoute> {
 
   @override
   Widget build(BuildContext context) {

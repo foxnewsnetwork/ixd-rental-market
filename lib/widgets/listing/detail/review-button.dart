@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:ixd_rental_market/data/review-aggregate.dart';
-import './review-button/dispute-pie-painter.dart';
-import './review-button/ratings-bar-graph.dart';
-
+part of widgets;
 /// The `ReviewButton` is a button with the reviews
 /// and other such related aggregate data from users.
 /// 

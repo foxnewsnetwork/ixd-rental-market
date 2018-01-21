@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:ixd_rental_market/data/user.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import './hamburger-menu/section.dart';
-import './hamburger-menu/link.dart';
-import './hamburger-menu/notification.dart';
+part of widgets;
 
 /// Similar to a void callback, except used exclusively
 /// for affecting transitions between routes and thus
@@ -102,6 +97,13 @@ class HamburgerMenu extends StatelessWidget {
             return onPressed('Terms of service');
           },
         ),
+        new HamburgerMenuLink(
+          icon: Icons.bug_report,
+          linkName: 'Debug room',
+          onPressed: () {
+            return onPressed('debug');
+          },
+        )
       ],
     );
   }

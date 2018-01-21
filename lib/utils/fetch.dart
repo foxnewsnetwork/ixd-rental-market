@@ -1,5 +1,4 @@
-import 'package:http/http.dart' as http;
-import 'dart:async';
+part of utils;
 
 final http.Client client = new http.Client();
 

@@ -1,16 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:ixd_rental_market/widgets/listing/detail/header.dart' as ListingDetailHeader;
-import 'package:ixd_rental_market/widgets/listing/detail/horizontal-nav.dart';
-import 'package:ixd_rental_market/widgets/listing/detail/gallery-preview.dart';
-import 'package:ixd_rental_market/widgets/listing/detail/address-map-button.dart';
-import 'package:ixd_rental_market/widgets/listing/detail/tags-gallery.dart';
-import 'package:ixd_rental_market/widgets/listing/detail/user-blurb.dart';
-import 'package:ixd_rental_market/widgets/listing/detail/product-description.dart';
-import 'package:ixd_rental_market/widgets/listing/detail/review-button.dart';
-import 'package:ixd_rental_market/widgets/hamburger-menu.dart';
-import 'package:ixd_rental_market/data/tag.dart';
-import 'package:ixd_rental_market/data/user.dart';
-import 'package:ixd_rental_market/data/review-aggregate.dart';
+part of routes;
 
 class ListingDetailRoute extends StatefulWidget {
   ListingDetailRoute({Key key, this.title, this.dailyPriceRate, this.distanceAway}) : super(key: key);
@@ -54,19 +42,12 @@ class _ListingDetailRouteState extends State<ListingDetailRoute> {
           )
         ],
       ),
-      drawer: new HamburgerMenu(
-        user: _userFixture,
-        notifications: 2,
-        onPressed: (String routeName) { }
-      ),
       body: new ListView(
         children: <Widget>[
-          ListingDetailHeader.header(
-            new ListingDetailHeader.HeaderAPI(
-              title: widget.title,
-              dailyPriceRate: widget.dailyPriceRate,
-              distanceAway: widget.distanceAway
-            )
+          new DetailHeader(
+            title: widget.title,
+            dailyPriceRate: widget.dailyPriceRate,
+            distanceAway: widget.distanceAway
           ),
           new Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),

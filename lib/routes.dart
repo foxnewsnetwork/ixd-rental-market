@@ -1,11 +1,21 @@
+library routes;
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
-import './routes/debug.dart';
-import './routes/debug/list-view.dart';
-import './routes/listing/detail.dart';
-import './routes/debug/hamburger.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:ixd_rental_market/widgets.dart';
+import 'package:ixd_rental_market/data.dart';
+import 'package:ixd_rental_market/fixtures.dart';
 
-class Routes {
+part './routes/debug/hamburger.dart';
+part './routes/debug/icons.dart';
+part './routes/debug/index.dart';
+part './routes/debug/list-view.dart';
+
+part './routes/home/index.dart';
+
+part './routes/listing/detail.dart';
+
+abstract class Routes {
   static Router router;
 
   static void setup(Router router) {
@@ -14,7 +24,7 @@ class Routes {
       handler:  new Handler(
         type: HandlerType.route,
         handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-          return new DebugHamburger();
+          return new DebugHamburgerRoute();
         }
       )
     );
@@ -24,7 +34,7 @@ class Routes {
         type: HandlerType.route, 
         handlerFunc: (BuildContext context, Map<String, dynamic> params) {
           
-          return new DebugRoute(title: 'debug room');
+          return new DebugIndexRoute(title: 'debug room');
         }
       )
     );
@@ -33,7 +43,7 @@ class Routes {
       handler: new Handler(
         type: HandlerType.route,
         handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-          return new DebugListView(title: 'debug list view');
+          return new DebugListViewRoute(title: 'debug list view');
         }
       )
     );

@@ -1,3 +1,5 @@
+part of utils;
+
 typedef Out MapFn<In, Out>(In i);
 
 /// # Functional Programming Functor
