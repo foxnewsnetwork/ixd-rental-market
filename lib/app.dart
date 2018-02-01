@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
         // didn't reset back to zero; the application is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: new HomeIndexRoute(title: 'Flutter Demo Home Page'),
+      home: new HomeIndexRoute(title: 'Rental Market'),
 
       onGenerateRoute: this.router.generator,
     );

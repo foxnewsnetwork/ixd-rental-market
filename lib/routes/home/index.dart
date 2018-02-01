@@ -11,16 +11,7 @@ class HomeIndexRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(title),
-        actions: <Widget>[
-          new IconButton(
-            icon: new Icon(Icons.more_vert),
-            tooltip: 'Side menu',
-            onPressed: () {},
-          )
-        ]
-      ),
+      appBar: buildAppBar(),
       drawer: new HamburgerMenu(
         user: userFixture,
         notifications: 2,
@@ -28,6 +19,18 @@ class HomeIndexRoute extends StatelessWidget {
           Navigator.of(context).pushNamed(routeName);
         }
       ),
+    );
+  }
+
+  Widget buildAppBar() {
+    return new AppBar(
+      title: new Text(title),
+      actions: <Widget>[
+        new IconButton(
+          icon: const Icon(Icons.search),
+          onPressed:  () {},
+        )
+      ],
     );
   }
 }
