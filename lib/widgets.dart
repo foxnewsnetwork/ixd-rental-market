@@ -1,11 +1,11 @@
 library widgets;
 
 import 'package:flutter/material.dart';
-import 'package:ixd_rental_market/data.dart';
+import './data.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:meta/meta.dart';
 import 'dart:math';
-import 'package:ixd_rental_market/utils.dart';
+import './utils.dart';
 
 part './widgets/hamburger-menu.dart';
 part './widgets/hamburger-menu/section.dart';

@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fluro/fluro.dart';
-import 'package:flutter_redux/flutter_redux.dart';
-import 'package:redux/redux.dart';
+
 import './routes.dart';
-import './data.dart';
-import './reducers.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -14,14 +10,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final Router router = new Router();
-  final Store<AppState> store = new Store(appReduce, initialState: AppState.initial);
+  final AppRouter router;
 
-  _MyAppState() {
-    Routes.setup(this.router);
-    debugPrint('0000000');
-    debugPrint('Setting up state');
-  }
+  _MyAppState():
+    router = new AppRouter(),
+    super();
 
   // This widget is the root of your application.
   @override
@@ -39,12 +32,8 @@ class _MyAppState extends State<MyApp> {
         // didn't reset back to zero; the application is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: new StoreConnector(
-        converter: (Store<AppState> store) => store.state.routesState.homeIndex,
-        builder: (BuildContext context, HomeIndexRouteState homeIndex) => new HomeIndexRoute(state: homeIndex),
-      ),
 
-      onGenerateRoute: this.router.generator,
+      onGenerateRoute: router.generator,
     );
   }
 }

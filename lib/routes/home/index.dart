@@ -3,9 +3,9 @@ part of routes;
 class HomeIndexRoute extends StatelessWidget {
   final HomeIndexRouteState state;
 
-  HomeIndexRoute({
+  const HomeIndexRoute({
     Key key,
-    this.state
+    this.state,
   }) : super(key: key);
 
   @override

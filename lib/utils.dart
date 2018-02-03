@@ -3,7 +3,7 @@ library utils;
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:ixd_rental_market/config/secrets.dart';
+import './config/secrets.dart';
 
 part './utils/fetch.dart';
 part './utils/icon.dart';

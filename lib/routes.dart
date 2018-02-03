@@ -2,9 +2,11 @@ library routes;
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:ixd_rental_market/widgets.dart';
-import 'package:ixd_rental_market/data.dart';
-import 'package:ixd_rental_market/fixtures.dart';
+import 'package:redux/redux.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import './widgets.dart';
+import './data.dart';
+import './reducers.dart';
 
 part './routes/debug/hamburger.dart';
 part './routes/debug/icons.dart';
@@ -15,10 +17,36 @@ part './routes/home/index.dart';
 
 part './routes/listing/detail.dart';
 
-abstract class Routes {
-  static Router router;
+class AppRouter {
+  final Router router = new Router();
+  final Store<AppState> store = new Store(appReducer, initialState: AppState.initial);
 
-  static void setup(Router router) {
+  static AppRouter _instance;
+
+  factory AppRouter() { 
+    if (_instance != null) {
+      return _instance;
+    }
+    _instance = new AppRouter._();
+    return _instance;
+  }
+
+  AppRouter._() {
+    router.define(
+      '/',
+      handler: new Handler(
+        type: HandlerType.route,
+        handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+          return new StoreProvider(
+            store: store,
+            child: new StoreConnector(
+              converter: (Store<AppState> store) => store.state.routesState.homeIndex,
+              builder: (BuildContext context, HomeIndexRouteState state) => new HomeIndexRoute(state: state),
+            )
+          );
+        }
+      )
+    );
     router.define(
       'debug/hamburger',
       handler:  new Handler(
@@ -62,6 +90,7 @@ abstract class Routes {
         }
       )
     );
-    Routes.router = router;
   }
+
+  Route<Null> generator(RouteSettings routeSettings) => router.generator(routeSettings);
 }
