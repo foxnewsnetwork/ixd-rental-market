@@ -1,11 +1,11 @@
 part of routes;
 
 class HomeIndexRoute extends StatelessWidget {
-  final String title;
+  final HomeIndexRouteState state;
 
   HomeIndexRoute({
     Key key,
-    this.title
+    this.state
   }) : super(key: key);
 
   @override
@@ -13,8 +13,8 @@ class HomeIndexRoute extends StatelessWidget {
     return new Scaffold(
       appBar: buildAppBar(),
       drawer: new HamburgerMenu(
-        user: userFixture,
-        notifications: 2,
+        user: state.hamburger.user,
+        notifications: state.hamburger.notifications,
         onPressed: (String routeName) {
           Navigator.of(context).pushNamed(routeName);
         }
@@ -24,7 +24,7 @@ class HomeIndexRoute extends StatelessWidget {
 
   Widget buildAppBar() {
     return new AppBar(
-      title: new Text(title),
+      title: new Text(state.title),
       actions: <Widget>[
         new IconButton(
           icon: const Icon(Icons.search),
