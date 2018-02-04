@@ -12,9 +12,7 @@ part './routes/debug/hamburger.dart';
 part './routes/debug/icons.dart';
 part './routes/debug/index.dart';
 part './routes/debug/list-view.dart';
-
 part './routes/home/index.dart';
-
 part './routes/listing/detail.dart';
 
 class AppRouter {
@@ -27,22 +25,33 @@ class AppRouter {
     if (_instance != null) {
       return _instance;
     }
-    _instance = new AppRouter._();
+    _instance = new AppRouter._map();
     return _instance;
   }
 
-  AppRouter._() {
+  AppRouter._map() {
     router.define(
-      '/',
+      HomeIndexRoute.routeName,
       handler: new Handler(
         type: HandlerType.route,
         handlerFunc: (BuildContext context, Map<String, dynamic> params) {
           return new StoreProvider(
             store: store,
-            child: new StoreConnector(
-              converter: (Store<AppState> store) => store.state.routesState.homeIndex,
-              builder: (BuildContext context, HomeIndexRouteState state) => new HomeIndexRoute(state: state),
-            )
+            child: new HomeIndexRoute()
+          );
+        }
+      )
+    );
+    router.define(
+      ListingDetailRoute.routeName,
+      handler: new Handler(
+        type: HandlerType.route,
+        handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+          String title = params['id'];
+
+          return new StoreProvider(
+            store: store,
+            child: new ListingDetailRoute()
           );
         }
       )
@@ -75,21 +84,7 @@ class AppRouter {
         }
       )
     );
-    router.define(
-      '/listing/:id/detail',
-      handler: new Handler(
-        type: HandlerType.route,
-        handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-          String title = params['id'];
-
-          return new ListingDetailRoute(
-            title: '$title - 4200 Horsepower Bobcat',
-            dailyPriceRate: 420.0,
-            distanceAway: 0.5,
-          );
-        }
-      )
-    );
+    
   }
 
   Route<Null> generator(RouteSettings routeSettings) => router.generator(routeSettings);

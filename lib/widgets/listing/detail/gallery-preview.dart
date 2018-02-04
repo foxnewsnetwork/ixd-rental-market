@@ -6,7 +6,7 @@ class GalleryPreview extends StatefulWidget {
   final List<String> imageURIs;
   final VoidCallback seeAllPressed;
 
-  GalleryPreview({
+  const GalleryPreview({
     Key key,
     this.imageURIs,
     this.seeAllPressed

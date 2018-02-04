@@ -8,11 +8,11 @@ enum NotificationSeverity {
   invisible
 }
 
-class Notification {
+class NotificationModel {
   final String message;
   final NotificationSeverity severity;
 
-  Notification({
+  NotificationModel({
     this.message: ' ',
     this.severity: NotificationSeverity.danger
   });

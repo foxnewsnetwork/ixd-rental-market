@@ -9,4 +9,3 @@ abstract class AppAction {
 final Reducer<AppState> appReducer = combineTypedReducers([
   new ReducerBinding((AppState state, action) => state)
 ]);
-

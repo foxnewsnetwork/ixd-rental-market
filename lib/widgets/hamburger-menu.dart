@@ -8,7 +8,7 @@ part of widgets;
 typedef void LinkCallback(String routeName);
 
 class HamburgerMenu extends StatelessWidget {
-  final User user;
+  final UserModel user;
   final LinkCallback onPressed;
   final int notifications;
 
@@ -38,7 +38,7 @@ class HamburgerMenu extends StatelessWidget {
   Widget _buildHeader() {
     return new UserAccountsDrawerHeader(
       accountName: new Text(user.fullName),
-      accountEmail: new Text('my-email@somewhere.co'),
+      accountEmail: new Text(user.email),
       currentAccountPicture: new CircleAvatar(
         backgroundImage: user.imageProvider,
         child: new Text(user.initials)

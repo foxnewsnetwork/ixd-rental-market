@@ -1,6 +1,6 @@
 part of widgets;
 
-int _compareBars(Bar b1, Bar b2) {
+int _compareBars(BarModel b1, BarModel b2) {
   return b1.value.compareTo(b2.value);
 }
 
@@ -18,7 +18,7 @@ num _minDivide(num a, num b) {
 }
 
 class RatingBars extends StatelessWidget {
-  final List<Bar> bars;
+  final List<BarModel> bars;
   static const Map<int, Color> barColors = const {
     5: Colors.green,
     4: Colors.lightGreen,

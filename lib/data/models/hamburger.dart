@@ -1,11 +1,12 @@
 part of data;
 
+@immutable
 class HamburgerModel {
-  final User user;
+  final UserModel user;
   final int notifications;
 
   const HamburgerModel({
-    this.user: User.initial,
+    this.user: UserModel.initial,
     this.notifications: 0
   });
 

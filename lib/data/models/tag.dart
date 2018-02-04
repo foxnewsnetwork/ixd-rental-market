@@ -1,9 +1,12 @@
 part of data;
 
-class Tag {
+@immutable
+class TagModel {
   final String displayName;
 
-  Tag({
-    this.displayName
+  const TagModel({
+    this.displayName: 'Missing'
   });
+
+  static const TagModel initial = const TagModel();
 }

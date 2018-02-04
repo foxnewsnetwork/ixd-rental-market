@@ -1,35 +1,36 @@
 part of data;
 
-class Bar {
+@immutable
+class BarModel {
   final int weight;
   final int amount;
 
-  const Bar({
+  const BarModel({
     @required this.weight,
     @required this.amount
   });
 
-  const Bar.zero({
+  const BarModel.zero({
     int amount: 0
   }) : this(amount: amount, weight: 0);
 
-  const Bar.one({
+  const BarModel.one({
     int amount: 0
   }) : this(amount: amount, weight: 1);
 
-  const Bar.two({
+  const BarModel.two({
     int amount: 0
   }) : this(amount: amount, weight: 2);
 
-  const Bar.three({
+  const BarModel.three({
     int amount: 0
   }) : this(amount: amount, weight: 3);
 
-  const Bar.four({
+  const BarModel.four({
     int amount: 0
   }) : this(amount: amount, weight: 4);
 
-  const Bar.five({
+  const BarModel.five({
     int amount: 0
   }) : this(amount: amount, weight: 5);
 
@@ -38,25 +39,28 @@ class Bar {
 
 int _sum(int total, int value) => total + value;
 
-class ReviewAggregate {
+@immutable
+class ReviewAggregateModel {
   final int transactions;
   final int disputes;
-  final List<Bar> bars;
+  final List<BarModel> bars;
 
-  const ReviewAggregate({
+  const ReviewAggregateModel({
     this.transactions: 0,
     this.disputes: 0,
     this.bars: const [
-      const Bar.five(),
-      const Bar.four(),
-      const Bar.three(),
-      const Bar.two(),
-      const Bar.one(),
-      const Bar.zero()
+      const BarModel.five(),
+      const BarModel.four(),
+      const BarModel.three(),
+      const BarModel.two(),
+      const BarModel.one(),
+      const BarModel.zero()
     ]
   });
 
   num get disputePercent => disputes / transactions;
   num get stars => bars.map((bar) => bar.value).reduce(_sum) / totalAmount;
   num get totalAmount => bars.map((bar) => bar.amount).reduce(_sum);
+
+  static const ReviewAggregateModel initial = const ReviewAggregateModel();
 }

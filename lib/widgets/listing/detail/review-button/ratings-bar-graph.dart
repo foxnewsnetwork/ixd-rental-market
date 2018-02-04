@@ -1,7 +1,7 @@
 part of widgets;
 
 class RatingsBarGraph extends StatelessWidget {
-  final ReviewAggregate reviewAggregate;
+  final ReviewAggregateModel reviewAggregate;
 
   RatingsBarGraph({
     Key key,

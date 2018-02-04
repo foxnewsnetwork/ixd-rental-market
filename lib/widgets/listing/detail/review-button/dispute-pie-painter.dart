@@ -1,7 +1,7 @@
 part of widgets;
 
 class DisputesPieChart extends StatelessWidget {
-  final ReviewAggregate reviewAggregate;
+  final ReviewAggregateModel reviewAggregate;
 
   DisputesPieChart({
     Key key,

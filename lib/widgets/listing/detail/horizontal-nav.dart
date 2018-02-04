@@ -89,7 +89,7 @@ class HorizontalNav extends StatefulWidget {
   final VoidCallback bookmarkPressed;
   final VoidCallback rentPressed;
 
-  HorizontalNav({
+  const HorizontalNav({
     Key key,
     this.sharePressed,
     this.bookmarkPressed,

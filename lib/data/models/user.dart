@@ -1,20 +1,22 @@
 part of data;
 
 @immutable
-class User {
+class UserModel {
   final String avatarImageURL;
   final String fullName;
   final String initials;
+  final String email;
   final num listingCount;
 
-  const User({
+  const UserModel({
     this.avatarImageURL: 'images/dogelog.jpg',
     this.fullName: 'Doge Peterson',
+    this.email: 'my-email@somewhere.co',
     this.initials: 'AU',
     this.listingCount: 0
   });
 
-  ImageProvider<dynamic> get imageProvider => new NetworkImage(avatarImageURL);
+  ImageProvider<dynamic> get imageProvider => new AssetImage(avatarImageURL);
 
-  static const initial = const User();
+  static const initial = const UserModel();
 }
