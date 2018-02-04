@@ -2,6 +2,8 @@ name: ixd_rental_market
 description: A new Flutter project.
 
 dependencies:
+  redux: "^2.1.1"
+  flutter_redux: "^0.3.4"
   http: '>=0.11.3+12'
   font_awesome_flutter: '4.7.2'
   fluro: "^1.2.1"

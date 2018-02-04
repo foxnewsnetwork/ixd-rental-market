@@ -2,23 +2,60 @@ library routes;
 import 'package:flutter/material.dart';
 import 'package:fluro/fluro.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:ixd_rental_market/widgets.dart';
-import 'package:ixd_rental_market/data.dart';
-import 'package:ixd_rental_market/fixtures.dart';
+import 'package:redux/redux.dart';
+import 'package:flutter_redux/flutter_redux.dart';
+import './widgets.dart';
+import './data.dart';
+import './reducers.dart';
 
 part './routes/debug/hamburger.dart';
 part './routes/debug/icons.dart';
 part './routes/debug/index.dart';
 part './routes/debug/list-view.dart';
-
 part './routes/home/index.dart';
-
 part './routes/listing/detail.dart';
 
-abstract class Routes {
-  static Router router;
+class AppRouter {
+  final Router router = new Router();
+  final Store<AppState> store = new Store(appReducer, initialState: AppState.initial);
 
-  static void setup(Router router) {
+  static AppRouter _instance;
+
+  factory AppRouter() { 
+    if (_instance != null) {
+      return _instance;
+    }
+    _instance = new AppRouter._map();
+    return _instance;
+  }
+
+  AppRouter._map() {
+    router.define(
+      HomeIndexRoute.routeName,
+      handler: new Handler(
+        type: HandlerType.route,
+        handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+          return new StoreProvider(
+            store: store,
+            child: new HomeIndexRoute()
+          );
+        }
+      )
+    );
+    router.define(
+      ListingDetailRoute.routeName,
+      handler: new Handler(
+        type: HandlerType.route,
+        handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+          String title = params['id'];
+
+          return new StoreProvider(
+            store: store,
+            child: new ListingDetailRoute()
+          );
+        }
+      )
+    );
     router.define(
       'debug/hamburger',
       handler:  new Handler(
@@ -47,21 +84,8 @@ abstract class Routes {
         }
       )
     );
-    router.define(
-      '/listing/:id/detail',
-      handler: new Handler(
-        type: HandlerType.route,
-        handlerFunc: (BuildContext context, Map<String, dynamic> params) {
-          String title = params['id'];
-
-          return new ListingDetailRoute(
-            title: '$title - 4200 Horsepower Bobcat',
-            dailyPriceRate: 420.0,
-            distanceAway: 0.5,
-          );
-        }
-      )
-    );
-    Routes.router = router;
+    
   }
+
+  Route<Null> generator(RouteSettings routeSettings) => router.generator(routeSettings);
 }

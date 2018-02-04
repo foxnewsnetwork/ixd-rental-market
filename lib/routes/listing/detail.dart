@@ -1,39 +1,93 @@
 part of routes;
 
-class ListingDetailRoute extends StatefulWidget {
-  ListingDetailRoute({Key key, this.title, this.dailyPriceRate, this.distanceAway}) : super(key: key);
+class ListingDetailRoute extends StatelessWidget {
+  static const String routeName = '/listing/:id/detail';
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
+  const ListingDetailRoute({Key key}) : super(key: key);
 
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
+  Widget _connectTitle() {
+    return new StoreConnector(
+      converter: (Store<AppState> store) => store.state.routesState.listingDetail.title,
+      builder: (BuildContext context, String title) => new Text(title),
+    );
+  }
 
-  final String title;
-  final double dailyPriceRate;
-  final double distanceAway;
+  Widget _connectDetailHeader() => new StoreConnector(
+    converter: (Store<AppState> store) => 
+      store.state.routesState.listingDetail,
+    builder: (BuildContext context, ListingDetailRouteState state) => 
+      new DetailHeader(
+        title: state.title,
+        dailyPriceRate: state.dailyPriceRate,
+        distanceAway: state.distanceAway
+      ),
+  );
 
-  @override
-  _ListingDetailRouteState createState() => new _ListingDetailRouteState();
-}
+  Widget _connectAddressButton() => new StoreConnector(
+    converter: (Store<AppState> store) =>
+      store.state.routesState.listingDetail.address,
+    builder: (BuildContext context, String address) =>
+      new AddressMapButton(
+        address: address,
+        onPressed: () {},
+      ),
+  );
 
-void doNothing() {
-  return;
-}
+  Widget _connectGalleryPreview() => new StoreConnector(
+    converter: (Store<AppState> store) =>
+      store.state.routesState.listingDetail.galleryImages,
 
-const _userFixture = const User(
-  fullName: 'Doge McMaster'
-);
+    builder: (BuildContext context, List<GalleryImageModel> images) =>
+      new GalleryPreview(
+        seeAllPressed: () {},
+        imageURIs: images.map((image) => image.previewImage),
+      ),
+  );
 
-class _ListingDetailRouteState extends State<ListingDetailRoute> {
+  Widget _connectTagsGallery() => new StoreConnector(
+    converter: (Store<AppState> store) =>
+      store.state.routesState.listingDetail.tags,
+    builder: (BuildContext context, List<TagModel> tags) =>
+      new TagsGallery(
+        onPressed: () {},
+        tags: tags
+      ),
+  );
+
+  Widget _connectUserBlurb() => new StoreConnector(
+    converter: (Store<AppState> store) =>
+      store.state.routesState.listingDetail.owner,
+    builder: (BuildContext context, UserModel user) => 
+      new UserBlurb(
+        onPressed: (){},
+        user: user,
+      )
+  );
+
+  Widget _connectProductDescription() => new StoreConnector(
+    converter: (Store<AppState> store) =>
+      store.state.routesState.listingDetail.productDescription,
+    builder: (BuildContext context, String description) =>
+      new ProductDescription(
+        description: description
+      ),
+  );
+
+  Widget _connectReviewButton() => new StoreConnector(
+    converter: (Store<AppState> store) =>
+      store.state.routesState.listingDetail.reviews,
+    builder: (BuildContext context, ReviewAggregateModel reviews) =>
+      new ReviewButton(
+        onTap: () {},
+        reviewAggregate: reviews
+      ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text(widget.title),
+        title: _connectTitle(),
         actions: <Widget>[
           new IconButton(
             icon: new Icon(Icons.more_vert),
@@ -44,68 +98,24 @@ class _ListingDetailRouteState extends State<ListingDetailRoute> {
       ),
       body: new ListView(
         children: <Widget>[
-          new DetailHeader(
-            title: widget.title,
-            dailyPriceRate: widget.dailyPriceRate,
-            distanceAway: widget.distanceAway
-          ),
+          _connectDetailHeader(),
           new Padding(
             padding: const EdgeInsets.symmetric(vertical: 8.0),
             child: new HorizontalNav(
-              sharePressed: doNothing,
-              bookmarkPressed: doNothing,
-              rentPressed: doNothing
+              sharePressed: () {},
+              bookmarkPressed: () {},
+              rentPressed: () {}
             )
           ),
-          new AddressMapButton(
-            address: '1806 Munson Street, Camarillo, CA 93010',
-            onPressed: () {},
-          ),
-          new GalleryPreview(
-            seeAllPressed: doNothing,
-            imageURIs: <String>[
-              'images/dogelog.jpg',
-              'images/dogelog.jpg',
-              'images/dogelog.jpg',
-              'images/dogelog.jpg'
-            ],
-          ),
-          new TagsGallery(
-            onPressed: doNothing,
-            tags: <Tag>[
-              new Tag(displayName: 'doge'),
-              new Tag(displayName: 'corgi'),
-              new Tag(displayName: 'husky'),
-              new Tag(displayName: 'malamute'),
-              new Tag(displayName: 'burmease'),
-              new Tag(displayName: 'wolf'),
-              new Tag(displayName: 'purse dog')
-            ]
-          ),
-          new UserBlurb(
-            onPressed: doNothing,
-            user: _userFixture,
-          ),
-          new ProductDescription(
-            description: 'Lorem ipsum dolor sit amet, solet melius et ius. Cu vim nisl omnesque. Vix ut latine molestie. In nec tollit liberavisse, movet insolens pro at. Facer salutandi percipitur usu ea.',
-          ),
-          new ReviewButton(
-            onTap: () {},
-            reviewAggregate: new ReviewAggregate(
-              disputes: 33,
-              transactions: 99,
-              bars: <Bar>[
-                const Bar.five(amount: 666),
-                const Bar.four(amount: 123),
-                const Bar.three(amount: 44),
-                const Bar.two(amount: 12),
-                const Bar.one(amount: 24),
-                const Bar.zero(amount: 26)
-              ]
-            ),
-          )
+          _connectAddressButton(),
+          _connectGalleryPreview(),
+          _connectTagsGallery(),
+          _connectUserBlurb(),
+          _connectProductDescription(),
+          _connectReviewButton()
         ],
       )
     );
   }
 }
+

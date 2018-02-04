@@ -7,7 +7,7 @@ class UserBlurb extends StatelessWidget {
     @required this.onPressed
   }) : super(key: key);
 
-  final User user;
+  final UserModel user;
   final VoidCallback onPressed;
 
   @override

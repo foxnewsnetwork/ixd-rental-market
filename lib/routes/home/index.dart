@@ -1,30 +1,37 @@
 part of routes;
 
 class HomeIndexRoute extends StatelessWidget {
-  final String title;
+  static const String routeName = '/';
 
-  HomeIndexRoute({
-    Key key,
-    this.title
-  }) : super(key: key);
+  const HomeIndexRoute({ Key key }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: buildAppBar(),
-      drawer: new HamburgerMenu(
-        user: userFixture,
-        notifications: 2,
-        onPressed: (String routeName) {
-          Navigator.of(context).pushNamed(routeName);
-        }
+      appBar: _buildAppBar(),
+      drawer: new StoreConnector(
+        converter: (Store<AppState> store) => store.state.routesState.homeIndex.hamburger,
+        builder: _buildHamburger,
       ),
     );
   }
 
-  Widget buildAppBar() {
+  Widget _buildHamburger(BuildContext context, HamburgerModel hamburger) {
+    return new HamburgerMenu(
+      user: hamburger.user,
+      notifications: hamburger.notifications,
+      onPressed: (String routeName) {
+        Navigator.of(context).pushNamed(routeName);
+      }
+    );
+  }
+
+  Widget _buildAppBar() {
     return new AppBar(
-      title: new Text(title),
+      title: new StoreConnector(
+        converter: (Store<AppState> store) => store.state.routesState.homeIndex.title,
+        builder: (BuildContext context, title) => new Text(title),
+      ),
       actions: <Widget>[
         new IconButton(
           icon: const Icon(Icons.search),
