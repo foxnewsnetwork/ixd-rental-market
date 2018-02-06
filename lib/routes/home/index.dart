@@ -18,6 +18,28 @@ class HomeIndexRoute extends StatelessWidget {
         child: new Icon(Icons.add),
         tooltip: 'Create a Listing',
       ),
+      body: new ListView(
+        children: <Widget>[
+          _connectChipRow()
+        ],
+      ),
+    );
+  }
+
+  Widget _connectChipRow() {
+    return new StoreConnector(
+      converter: (Store<AppState> store) => 
+        store.state.routesState.homeIndex.tags,
+      builder: (BuildContext context, List<TagModel> tags) => 
+        new HomeIndexChipRow(
+          children: tags.map((TagModel tag) => 
+            new HomeIndexChip(
+              label: new Text(tag.displayName),
+              onTap: () {
+              }
+            )
+          ).toList(),
+        ),
     );
   }
 

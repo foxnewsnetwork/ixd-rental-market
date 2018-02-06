@@ -1,10 +1,10 @@
 library widgets;
 
 import 'package:flutter/material.dart';
-import './data.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:meta/meta.dart';
 import 'dart:math';
+import './data.dart';
 import './utils.dart';
 
 part './widgets/hamburger-menu.dart';
@@ -26,3 +26,5 @@ part './widgets/listing/detail/review-button/pie-painter.dart';
 part './widgets/listing/detail/review-button/rating-bars.dart';
 part './widgets/listing/detail/review-button/rating-stars.dart';
 part './widgets/listing/detail/review-button/ratings-bar-graph.dart';
+
+part './widgets/home/index/chip-row.dart';
