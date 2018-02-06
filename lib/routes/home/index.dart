@@ -13,6 +13,11 @@ class HomeIndexRoute extends StatelessWidget {
         converter: (Store<AppState> store) => store.state.routesState.homeIndex.hamburger,
         builder: _buildHamburger,
       ),
+      floatingActionButton: new FloatingActionButton(
+        onPressed: () {},
+        child: new Icon(Icons.add),
+        tooltip: 'Create a Listing',
+      ),
     );
   }
 
