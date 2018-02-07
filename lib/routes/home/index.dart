@@ -7,6 +7,18 @@ class HomeIndexRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return new StoreConnector(
+      rebuildOnChange: false,
+      converter: (Store<AppState> store) => store.state.routesState.homeIndex.categories.length,
+      builder: (BuildContext context, int length) =>
+        new DefaultTabController(
+          length: length,
+          child: _buildPage(),
+        ),
+    );
+  }
+
+  Widget _buildPage() {
     return new Scaffold(
       appBar: _buildAppBar(),
       drawer: new StoreConnector(
@@ -18,11 +30,23 @@ class HomeIndexRoute extends StatelessWidget {
         child: new Icon(Icons.add),
         tooltip: 'Create a Listing',
       ),
-      body: new ListView(
-        children: <Widget>[
-          _connectChipRow()
-        ],
-      ),
+      body: new StoreConnector(
+        rebuildOnChange: false,
+        converter: (Store<AppState> store) => 
+          store.state.routesState.homeIndex.categories,
+        builder: (BuildContext context, List<TagModel> categories) => 
+          new TabBarView(
+            children: categories.map(_buildPageContent).toList()
+          ),
+      )
+    );
+  }
+
+  Widget _buildPageContent(TagModel category) {
+    return new ListView(
+      children: <Widget>[
+        _connectChipRow()
+      ]
     );
   }
 
@@ -58,6 +82,15 @@ class HomeIndexRoute extends StatelessWidget {
       title: new StoreConnector(
         converter: (Store<AppState> store) => store.state.routesState.homeIndex.title,
         builder: (BuildContext context, title) => new Text(title),
+      ),
+      bottom: new TabBar(
+        isScrollable: true,
+        tabs: <Widget>[
+          new Tab(text: 'Home'),
+          new Tab(text: 'Kitchen'),
+          new Tab(text: 'Power Tools'),
+          new Tab(text: 'Sensors')
+        ],
       ),
       actions: <Widget>[
         new IconButton(
